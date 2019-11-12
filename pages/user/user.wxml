@@ -1,0 +1,163 @@
+<!--pages/user/user.wxml-->
+<view class="container">
+  <view class="userInfoTop">
+    <image src = "{{userList.avatar_url}}" mode = "widthFix"></image>
+    <text class = "author">@{{userList.loginname}}</text>
+    <text class = "github">https://github.com/{{userList.githubUsername}}</text>
+    <text class="regTime">注册时间：{{userList.create_at}}</text>
+    <text class="point">积分：{{userList.score}}</text>
+  </view>
+  <view class="tabList">
+    <view class="listTop">
+      <text class="tabClass {{tabIndex == 0 ? 'cur' : '' }}" bindtap = "changeIndex" data-index = "0">最近发布</text>
+      <text class="tabClass {{tabIndex == 1 ? 'cur' : '' }}" bindtap = "changeIndex" data-index = "1">最近参与</text>
+      <text class="tabClass {{tabIndex == 2 ? 'cur' : '' }}" bindtap = "changeIndex" data-index = "2">收藏主题</text>
+    </view>
+    <!-- 内容布局 -->
+    <swiper class = "listAll" bindchange = "pageChange" current = "{{tabIndex}}" duration = "300">
+      <swiper-item class = "list" id = "swiper0">
+        <scroll-view scroll-y="true">
+          <block wx:if = "{{userList.recent_topics.length > 0}}">
+            <view  class="li" wx:for = "{{userList.recent_topics}}" wx:for-item = "item" wx:for-index = "index" wx:key = "unique">
+              <image src = "{{item.author.avatar_url}}" mode = "widthFix" class = "img"></image>
+              <view class="txt">
+                <text class = "title">{{item.title}}</text>
+                <view class="timeOr">
+                  <text class="aur">{{item.author.loginname}}</text>
+                  <text class="tm">{{item.last_reply_at}}</text>
+                </view>
+              </view>
+            </view>
+          </block>
+          <block wx:else>
+            <view class="zanwu" >
+              暂无数据
+            </view>
+          </block>
+        </scroll-view>
+      </swiper-item>
+      <swiper-item class = "list" id = "swiper1">
+        <scroll-view scroll-y="true">
+          <block wx:if = "{{userList.recent_replies.length > 0}}">
+            <view class="li" wx:for = "{{userList.recent_replies}}" wx:for-item = "item" wx:for-index = "index" wx:key = "unique">
+              <image src = "{{item.author.avatar_url}}" class = "img"></image>
+              <view class="txt">
+                <text class = "title">{{item.title}}</text>
+                <view class="timeOr">
+                  <text class="aur">{{item.author.loginname}}</text>
+                  <text class="tm">{{item.recent_topics}}</text>
+                </view>
+              </view>
+            </view>
+          </block>
+          <block wx:else>
+            <view class="zanwu" >
+              暂无数据
+            </view>
+          </block>
+        </scroll-view>
+      </swiper-item>
+      <swiper-item class = "list" id = "swiper2">
+        <scroll-view scroll-y="true">
+          <block wx:if = "{{userColl.length > 0}}">
+            <view class="li" wx:for = "{{userColl}}" wx:for-item = "item" wx:for-index = "index" wx:key = "unique">
+              <image src = "{{item.author.avatar_url}}" mode = "widthFix" class = "img"></image>
+              <view class="txt">
+                <text class = "title">{{item.title}}</text>
+                <view class="timeOr">
+                  <text class="aur">{{item.author.loginname}}</text>
+                  <text class="tm">{{item.last_reply_at}}</text>
+                </view>
+              </view>
+            </view>
+          </block>
+          <block wx:else>
+            <view class="zanwu" >
+              暂无数据
+            </view>
+          </block>
+        </scroll-view>
+      </swiper-item>
+    </swiper>
+    <!-- <view class="listAll">
+      <view class="list" hidden = "{{tabIndex != 0}}"> 
+        <view class="li">
+          <image src = "https://avatars0.githubusercontent.com/u/57613286?v=4&s=120" mode = "widthFix" class = "img"></image>
+          <view class="txt">
+            <text class = "title">如果你还有 Node 6.x 的项目，请珍惜它，因为今天是 LastDay 了，请点灯</text>
+            <view class="timeOr">
+              <text class="aur">aojiaotage</text>
+              <text class="tm">一天前</text>
+            </view>
+          </view>
+        </view>
+        <view class="li">
+          <image src = "https://avatars0.githubusercontent.com/u/57613286?v=4&s=120" mode = "widthFix" class = "img"></image>
+          <view class="txt">
+            <text class = "title">如果你还有 Node 6.x 的项目，请珍惜它，因为今天是 LastDay 了，请点灯</text>
+            <view class="timeOr">
+              <text class="aur">aojiaotage</text>
+              <text class="tm">一天前</text>
+            </view>
+          </view>
+        </view>
+        <view class="li">
+          <image src = "https://avatars0.githubusercontent.com/u/57613286?v=4&s=120" mode = "widthFix" class = "img"></image>
+          <view class="txt">
+            <text class = "title">如果你还有 Node 6.x 的项目，请珍惜它，因为今天是 LastDay 了，请点灯</text>
+            <view class="timeOr">
+              <text class="aur">aojiaotage</text>
+              <text class="tm">一天前</text>
+            </view>
+          </view>
+        </view>
+        <view class="li">
+          <image src = "https://avatars0.githubusercontent.com/u/57613286?v=4&s=120" mode = "widthFix" class = "img"></image>
+          <view class="txt">
+            <text class = "title">如果你还有 Node 6.x 的项目，请珍惜它，因为今天是 LastDay 了，请点灯</text>
+            <view class="timeOr">
+              <text class="aur">aojiaotage</text>
+              <text class="tm">一天前</text>
+            </view>
+          </view>
+        </view>
+        <view class="li">
+          <image src = "https://avatars0.githubusercontent.com/u/57613286?v=4&s=120" mode = "widthFix" class = "img"></image>
+          <view class="txt">
+            <text class = "title">如果你还有 Node 6.x 的项目，请珍惜它，因为今天是 LastDay 了，请点灯</text>
+            <view class="timeOr">
+              <text class="aur">aojiaotage</text>
+              <text class="tm">一天前</text>
+            </view>
+          </view>
+        </view>
+        <view class="li">
+          <image src = "https://avatars0.githubusercontent.com/u/57613286?v=4&s=120" mode = "widthFix" class = "img"></image>
+          <view class="txt">
+            <text class = "title">如果你还有 Node 6.x 的项目，请珍惜它，因为今天是 LastDay 了，请点灯</text>
+            <view class="timeOr">
+              <text class="aur">aojiaotage</text>
+              <text class="tm">一天前</text>
+            </view>
+          </view>
+        </view>
+        <view class="li">
+          <image src = "https://avatars0.githubusercontent.com/u/57613286?v=4&s=120" mode = "widthFix" class = "img"></image>
+          <view class="txt">
+            <text class = "title">如果你还有 Node 6.x 的项目，请珍惜它，因为今天是 LastDay 了，请点灯</text>
+            <view class="timeOr">
+              <text class="aur">aojiaotage</text>
+              <text class="tm">一天前</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="list" hidden = "{{tabIndex != 1}}">
+        我是2
+      </view>
+      <view class="list" hidden = "{{tabIndex != 2}}">
+        我是3
+      </view>
+    </view> -->
+  </view>
+</view>

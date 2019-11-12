@@ -1,0 +1,24 @@
+<!--index.wxml-->
+<view class="container">
+  <my-slide-left showState = "{{showState}}" id = "slideleft" bind:parentItem = "saveItem"></my-slide-left>
+  <view class = "list">
+    <view class="li" wx:for = "{{dataJson}}" wx:for-item = "item" wx:for-index = "index" wx:key = "*this" data-item = "{{item}}" bindtap = "toDetail">
+      <view class="con">
+        <image src = "{{item.author && item.author.avatar_url}}" mode= "widthFix" class = "uimg"></image>
+        <text class="label {{item.top ? 'bg1' : ''}}" wx:if = "{{item.top}}">置顶</text>
+        <text class="label bg2" wx:elif = "{{item.good === true}}">精华</text>
+        <text class="label bg4" wx:elif = "{{item.tab === 'share'}}">分享</text>
+        <text class="label bg3" wx:elif = "{{item.tab === 'ask'}}">问答</text>
+        <text class="label bg5" wx:elif = "{{item.tab === 'job'}}">招聘</text>
+        <view class="tilte">
+          {{item.title}}
+        </view>
+      </view>
+      <view class="bot">
+        <text class="ctime">创建于：{{item.create_at}}</text>
+        <view class="timeNum"><text class = "c1">{{item.reply_count}}</text> / {{item.visit_count}} · {{item.last_reply_at}}</view> 
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 弹窗 -->

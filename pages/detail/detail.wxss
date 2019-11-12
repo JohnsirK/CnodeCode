@@ -1,0 +1,153 @@
+/**pages/index.wxss**/
+/**基础风格样式**/
+@import '/towxml/style/main.wxss';
+/**如果页面有动态主题切换，则需要将使用到的样式全部引入**/
+/**主题配色（浅色样式）**/
+@import '/towxml/style/theme/light.wxss';
+/**主题配色（深色样式）**/
+@import '/towxml/style/theme/dark.wxss';
+/* pages/detail/detail.wxss */
+.detail {
+  padding: 30rpx;
+  position: relative;
+}
+.detail .title {
+  font-size: 32rpx;
+  font-weight: bold;
+  width: calc(100% - 70rpx);
+  display: block;
+} 
+.authorInfo {
+  display: flex;
+  margin: 20rpx 0;
+  padding-bottom: 20rpx;
+  align-items: center;
+  border-bottom: 2rpx solid #f5f5f5
+}
+.authorInfo .img, .authorInfo .img image {
+  width: 100rpx;
+  height: 100rpx;
+  display: block;
+  border-radius: 100rpx;
+  margin-right: 10rpx;
+}
+.authorInfo .text .name{
+  font-size: 28rpx;
+  color: #333;
+}
+.authorInfo .text .time {
+  font-size: 24rpx;
+  color: #999;
+}
+.authorInfo .collzan {
+  margin-left: auto;
+  position:relative;
+  width: 60rpx;
+  height: 60rpx;
+}
+.authorInfo .collzan .iconfont {
+  font-size: 60rpx;
+  position: absolute;
+  top:0;
+  left:0;
+  opacity: 1;
+}
+.authorInfo .collzan .iscoll {
+  color: #e43838;
+}
+.authorInfo .isGood {
+  position: absolute;
+  top: 26rpx;
+  right: 20rpx;
+  font-size: 80rpx;
+  z-index: -1;
+  color: #e43838
+}
+.content {
+  font-size: 28rpx;
+  color: #666;
+  line-height: 44rpx;
+  text-indent: 2em;
+}
+.nameSpan {
+  display: flex;
+  align-items: center;
+  padding: 10rpx 0; 
+}
+.nameSpan .span {
+  font-size: 24rpx;
+  padding: 4rpx 10rpx;
+  margin-left: 10rpx; 
+  border-radius: 4rpx;
+}
+.content image {
+  max-width: 100%;
+  display: block;
+}
+.relpy .h3{
+  margin:0 -30rpx;
+  background: #f7f7f7;
+  display: block;
+  font-size: 28rpx;
+  padding: 10rpx 30rpx;
+}
+.relpy .replyList {
+  margin: 20rpx 0;
+}
+.relpy .rli .h4 {
+  display: flex;
+  align-items: center;
+}
+.relpy .h4 image {
+  width: 60rpx;
+  height: 60rpx;
+  display: block;
+  border-radius: 10rpx;
+  margin-right: 10rpx;
+  margin-left: 0;
+}
+.relpy .rli .rauthor {
+  color: #666;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+.relpy .rli .rfollow {
+  margin: 0 10rpx;
+  color: #08c;
+  font-size: 24rpx;
+}
+.relpy .rli .rtime {
+  color: #999;
+  font-size: 24rpx; 
+}
+.relpy .rli .rcoll {
+  color: #999;
+  font-size: 24rpx;
+}
+.relpy .rli .right {
+  margin-left: auto;
+  text-align: right;
+  display: flex;
+  align-items: center;
+}
+.relpy .rli .rCon {
+  color: #666;
+  font-size: 28rpx;
+  line-height: 44rpx;
+}
+.h2w__main {
+  padding-top:0 
+}
+.h2w__main  {
+  font-size: 28rpx;
+  margin: 0
+}
+.h2w__p {
+  margin:0 0 20rpx 0
+}
+.zanwu {
+  text-align: center;
+  padding: 10rpx 0;
+  color: #999;
+  font-size: 28rpx;
+}

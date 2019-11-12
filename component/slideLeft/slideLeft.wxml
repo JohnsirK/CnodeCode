@@ -1,0 +1,47 @@
+<!--component/slideLeft/slideLeft.wxml-->
+<view class="slideLeft {{showState}}" >
+  <view class="slide">
+    <view class ="imgTx">
+      <block wx:if = "{{!user}}">
+        <image bindtap = "loginStatus" src = "https://gss0.bdstatic.com/6LZ1dD3d1sgCo2Kml5_Y_D3/sys/portrait/item/3da0e78e8be5b78de4ba8ce8b4a7abaf" mode = "widthFix" ></image>
+        <text class = "admin">点击头像登录</text>
+      </block>
+      <block wx:else>
+        <image bindtap = "hrefMe" data-name = "{{user.loginname}}" src = "{{user.avatar_url}}" mode = "widthFix" ></image>
+        <view class="userView">
+          <text class = "admin">{{user.loginname}}</text> |
+          <view class = "exit">
+            <text class = " iconfont icon-duanxiaoxi"></text>
+          </view>
+        </view>
+      </block>
+      <text class = "info">“ {{tip}}”</text>
+    </view>
+    <view class = "li" wx:for = "{{tabList}}" wx:for-item = "item" wx:for-index = "{{index}}" wx:key = "*this" bindtap = "clickTab" data-item = "{{item.text}}">
+      <text class = "iconfont {{item.icon}}"></text> <text class = "text">{{item.text}}</text>
+    </view>
+    <view class="botm">
+      <text class = "author">@by 胖虎</text>
+      <text class = "laiyuan">感谢CNode提供Api接口</text>
+    </view>
+  </view>
+  <view class="bgHand" bindtap = "closeSlide"></view>
+  <view class="loginView"  wx:if = "{{loginStatus}}" bind:tap = "hideStatus">
+    <view class="login" catch:tap = "showStatus" animation = "{{animationData}}">
+      <text class = "iconClose" catch:tap = "hideStatus">x</text>
+      <view class = "input">
+        <input type="text" placeholder="请输入合法的Token" value = "{{accesstoken}}" bindinput = "inputedit" data-value = "{{accesstoken}}"/>
+      </view>
+      <view class="loginUp" catchtap = "loginAccess">
+        登录
+      </view> 
+      <view class="saoCode" catchtap = "scanCode"> 
+        <text class = "iconfont icon-saoma"></text>扫码登录
+      </view>
+    </view>
+  </view>
+</view>
+<view class="fixMe" catchtap = "changeShow">
+  <image src = "./../../images/4366658.png"></image>
+</view>
+<my-login id = "loginDialog" bind:saveUser = "saveUser"></my-login> 

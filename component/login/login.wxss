@@ -1,0 +1,84 @@
+/* component/login/login.wxss */
+
+.loginView {
+  position: fixed;
+  left:0;
+  top:0;
+  background: rgba(0, 0, 0, .6);
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+}
+.login {
+  width: 80%;
+  height: 340rpx;
+  transform: translate3d(76rpx, 200rpx ,0);
+  opacity: 1;
+  background: #fff;
+  border-radius: 10rpx;
+  box-shadow: 0 4rpx 20rpx (100, 100, 100, .8);
+  box-sizing: border-box;
+  padding: 20rpx;
+  z-index: 10;
+}
+.login .iconClose{
+  position: absolute;
+  right: 20rpx;
+  top: 20rpx;
+  text-align: center;
+  width: 40rpx;
+  height: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 40rpx;
+  color: #333;
+  font-size: 40rpx;
+}
+.login .input {
+  margin: 80rpx 0 30rpx 0;
+}
+.login .input input {
+  border-bottom: 2rpx solid #dedede;
+  padding:10rpx 20rpx;
+  color: #666;
+  font-size: 28rpx;
+}
+.login .loginUp {
+  background: #80bd01;
+  color: #fff;
+  padding: 12rpx 0;
+  text-align: center;
+  border-radius: 10rpx;
+  font-size: 32rpx;
+  margin-bottom: 10rpx;
+}
+.login .saoCode {
+  display: flex;
+  align-items: center;
+  color: #666;
+  font-size: 24rpx;
+}
+.userView {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  margin-top: 20rpx;
+}
+.userView .admin {
+  margin-right: 20rpx;
+  display: flex;
+  margin-top: 0rpx;
+  align-items: center;
+}
+.userView .exit {
+  font-size: 28rpx;
+  margin-left: 20rpx;
+  display: flex;
+  align-items: center;
+  color: #cfcfcf;
+  margin-top: 8rpx;
+}
+.login .saoCode .iconfont {
+  margin-right:  10rpx;
+}

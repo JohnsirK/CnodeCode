@@ -1,0 +1,4 @@
+<!--component/toast/toast.wxml-->
+<view class="myToast" wx:if = "{{isChildShow}}" >
+  <text>{{innerText}}</text>
+</view>

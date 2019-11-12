@@ -1,0 +1,120 @@
+/* pages/user/user.wxss */
+page {
+  height: 100%;
+}
+.userInfoTop {
+  background: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1574143979&di=4f08be874d2b83a4a0442339ae899fef&imgtype=jpg&er=1&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2F4854ac4b6521e2378403afc30762b3a021ff330bb672-WE9XAb_fw658) no-repeat;
+  background-position: center center;
+  height: 35%;
+  background-size: 100% 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative
+}
+.userInfoTop image {
+  width: 120rpx;
+  height: 120rpx;
+  display: block;
+  border-radius: 120rpx;
+  border:6rpx solid #fff;
+}
+.userInfoTop .author {
+  color: #fff;
+  margin: 20rpx 0 0rpx 0; 
+}
+.userInfoTop .github {
+  color: #333;
+  font-size: 24rpx;
+}
+.userInfoTop .regTime {
+  position: absolute;
+  bottom: 30rpx;
+  left: 30rpx;
+  color: #fff;
+  font-size: 24rpx;
+}
+.userInfoTop .point {
+  position: absolute;
+  bottom: 30rpx;
+  right: 30rpx;
+  color: green;
+  font-size: 24rpx;
+}
+.tabList {
+  background: #fff;
+  min-height: 65%;
+  height: 65%;
+}
+.tabList .listTop {
+  height: 100rpx;
+  background: #1a3880;
+  width: 100%;
+  display: flex; 
+  
+}
+.tabList .listTop .cur {
+  border-bottom: 6rpx solid #9ec6f1;
+  color: #fff;
+}
+.tabList .listTop text {
+  flex: 1;
+  border-bottom: 6rpx solid #1a3880;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #989696;
+  font-size: 28rpx;
+}
+.tabList .list .li{
+  padding: 20rpx 30rpx;
+  display: flex;
+  border-bottom: 2rpx solid #efeff1;
+  align-items: center;
+}
+.tabList .list {
+  -webkit-overflow-scrolling:touch
+}
+.tabList .list .li .img {
+  width: 80rpx;
+  height: 80rpx;
+  display: block;
+  margin-right: 10rpx;
+  border-radius: 10rpx;
+}
+.tabList .li .txt {
+  width: calc(100% - 90rpx);
+  display: flex;
+  flex-direction: column;
+}
+.tabList .li .title {
+  color: #333;
+  font-size: 28rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.tabList .li .timeOr {
+  display: flex;
+  font-size: 24rpx;
+  color: #999
+}
+.tabList .li .tm {
+  margin-left: auto;
+}  
+.listAll {
+  height: calc(100% - 100rpx);
+  width: 100%; 
+}
+scroll-view{
+  overflow: scroll;
+  height: 100%;
+}
+.zanwu {
+  text-align: center;
+  padding: 60rpx 0;
+  color: #999;
+  font-size: 28rpx;
+}

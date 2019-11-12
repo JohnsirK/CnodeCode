@@ -1,0 +1,16 @@
+/* component/toast/toast.wxss */
+.myToast {
+  position: fixed;
+  bottom: 100rpx;
+  width: 100%;
+  left: 0;
+  text-align: center;
+  z-index: 99999;
+}
+.myToast text {
+  background: rgba(0, 0, 0, .6);
+  color: #fff;
+  font-size: 24rpx;
+  border-radius: 4rpx;
+  padding: 16rpx 20rpx;
+}

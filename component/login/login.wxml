@@ -1,0 +1,17 @@
+<!--component/login/login.wxml-->
+<view class="loginView"  wx:if = "{{loginStatus}}" bind:tap = "hideStatus">
+  <view class="login" catch:tap = "showStatus" animation = "{{animationData}}">
+    <text class = "iconClose" catch:tap = "hideStatus">x</text>
+    <view class = "input">
+      <input type="text" placeholder="请输入合法的Token" value = "{{accesstoken}}" bindinput = "inputedit" data-value = "{{accesstoken}}"/>
+    </view>
+    <view class="loginUp" catchtap = "loginAccess">
+      登录
+    </view> 
+    <view class="saoCode" catchtap = "scanCode"> 
+      <text class = "iconfont icon-saoma"></text>扫码登录
+    </view>
+  </view>
+</view>
+<!-- 弹窗 -->
+<my-toast inner-text = "{{toastText}}" isShow = "{{isShow}}"></my-toast>

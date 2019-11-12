@@ -1,0 +1,61 @@
+<!--pages/detail/detail.wxml-->
+<view class="container detail">
+  <text class="title">{{dataJson.title}}</text>
+  <view class="authorInfo">
+    <image bindtap = "hrefMe" data-name = "{{dataJson.author.loginname}}" src = "{{dataJson.author && dataJson.author.avatar_url}}" mode= "widthFix" class = "img"></image>
+    <view class="text">
+      <view class="nameSpan">
+        <text class = "name">{{dataJson.author.loginname}}</text>
+        <text class="span bg4" wx:if = "{{dataJson.tab === 'share'}}">分享</text>
+        <text class="span bg3" wx:elif = "{{dataJson.tab === 'ask'}}">问答</text>
+        <text class="span bg5" wx:elif = "{{dataJson.tab === 'job'}}">招聘</text>
+      </view>
+      <view class="time">
+        创建:{{dataJson.create_at}} · 回复:{{dataJson.last_reply_at}} · <text class = "c1">{{dataJson.reply_count}}</text> / {{dataJson.visit_count}}次浏览
+      </view>
+    </view>
+    <view class="collzan">
+      <text class="iconfont icon-xin"  wx:if = "{{!dataJson.is_collect}}" bindtap = "isColl" animation = "{{collAnimation}}"></text>
+      <text class="iconfont icon-xin1 iscoll" wx:else bindtap = "isColl" bindtap = "unColl" animation = "{{unCollAnimation}}"></text>
+    </view>
+    <text class="isGood iconfont icon-ziyuan" wx:if = "{{dataJson.good}}"></text>
+  </view>
+  <view class="content">
+    <import src = "../../towxml/entry.wxml"></import>
+    <template is = "entry" data = "{{...detailContent}}" bind:touchstart = "tost"></template>
+  </view>
+  <!-- 回复 -->
+  <view class="relpy">
+    <text class="h3">{{dataJson.replies.length}} 条回复</text>
+    <view class="replyList">
+      <block wx:if = "{{dataJson.replies.length > 0}}">
+        <view class="rli" wx:for = "{{dataJson.replies}}" wx:for-item = "li" wx:for-index = "index" wx:key = "unique">
+          <view class="h4">
+            <image bindtap = "hrefMe" data-name = "{{li.author.loginname}}" src = "{{li.author.avatar_url}}" mode = "widthFix"></image>
+            <text class="rauthor">{{li.author.loginname}}</text>
+            <text class="rfollow">{{index + 1}}楼</text>
+            <view class="right">
+              <view class="rcoll">
+                <block wx:if = "{{li.ups.length > 0}}">
+                  <text class = "iconfont icon-zan1"></text>
+                  {{li.ups.length}}
+                </block>
+              </view>
+              <text class="rtime">{{li.create_at}}</text>
+            </view>
+          </view>
+          <view class="rCon"> 
+          <import src = "../../towxml/entry.wxml"></import>
+          <template is = "entry" data = "{{...li.content}}" bind:touchstart = "tost"></template>
+          </view>
+        </view>
+      </block>
+      <block wx:else>
+        <view class="zanwu">
+          暂无回复
+        </view>
+      </block>
+    </view>
+  </view>
+</view>
+<my-login id = "loginDialog" bind:saveUser = "saveUser"></my-login> 

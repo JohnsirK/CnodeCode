@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "my-login": "./../component/login/login"
+  }
+}
